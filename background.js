@@ -3,7 +3,7 @@ const CLIENTID = encodeURIComponent('1089259043786326067');
 const RESPONSETYPE = encodeURIComponent('token');
 const REDIRECTURI = encodeURIComponent('https://knnnlogbccldjjlgjfhehgofmglfogho.chromiumapp.org/');
 const STATE = encodeURIComponent('waterff99');
-const SCOPE = encodeURIComponent('identify email');
+const SCOPE = encodeURIComponent('identify email guilds');
 
 let userSignedIn = false;
 
@@ -24,7 +24,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			sendResponse("success");
 			return true;
 		}
-		localStorage.setItem('myInput', 'trued');
 		chrome.identity.launchWebAuthFlow({
 			url: getDiscordUri(),
 			interactive: true,
@@ -36,6 +35,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			sendResponse('success');
 			localStorage.setItem('logIn', 'trued');
 			console.log(redirect_uri);
+			const halves = redirect_uri.split("token=");
+			const temp = halves[1];
+			const token = temp.split("&expires");
+			localStorage.setItem("token", token[0]);
 		});
 
 		

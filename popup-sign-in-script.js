@@ -11,7 +11,8 @@ button.addEventListener('mouseleave', ()=>{
 button.addEventListener('click', ()=>{
 	chrome.runtime.sendMessage({message: 'login'}, function(response){
 		if(response=== 'success'){
-			window.location.replace('./popup-sign-out.html');
+			window.location.replace('./guilds.html');
+			//window.location.replace('./popup-sign-out.html');
 		}
 	});
 	

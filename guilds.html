@@ -1,0 +1,31 @@
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<title>Guilds</title>
+    <style>
+        body {
+            width: 300px;
+            height: 600px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+	</style>
+</head>
+
+<body>
+	<select id = "selectServer">
+		<option> Choose a Server </option>
+	</select>
+	<form>
+		<label for="fname">Webhook:</label><br>
+		<input type="text" id="fname" name="fname"><br>
+	</form>
+	<button type = "submit"id = "button"> Submit </button>
+	<button id = "logout">Sign out</button>
+	<script src = "./guilds.js"></script>
+	<script src = "./popup-sign-out-script.js"></script>
+	<script src = "./friends.js"></script>
+</body>
+</html>
