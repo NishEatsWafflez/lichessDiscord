@@ -1,12 +1,14 @@
-const button = document.querySelector('button');
+function getLink(){
+}
 
-button.addEventListener('click', ()=>{
+const discordSend = document.getElementById('discordBtn');
+discordSend.addEventListener('click', ()=>{
 	var details = {
     'variant': 'standard',
     'days': '1',
     'rated': 'false'
 	};
-	alert(localStorage.getItem(localStorage.getItem('serverID')));
+	//alert(localStorage.getItem(localStorage.getItem('serverID')));
 	var formBody = [];
 	for (var property in details) {
 		var encodedKey = encodeURIComponent(property);
@@ -26,7 +28,6 @@ button.addEventListener('click', ()=>{
 			}
 		})
 	.then(data => {
-		//alert(data.challenge.url);
 		fetch(localStorage.getItem(localStorage.getItem('serverID')), {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -36,7 +37,7 @@ button.addEventListener('click', ()=>{
 			alert(error);
 			localStorage.removeItem(localStorage.getItem('serverID'));
 		});
-
+		//alert(data.challenge.url);
 		//window.location.replace('./popup-sign-out.html');
         // check the response object for result
         // ...

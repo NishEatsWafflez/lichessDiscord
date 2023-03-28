@@ -1,7 +1,8 @@
 const DISCORDURL = 'https://discord.com/api/oauth2/authorize';
 const CLIENTID = encodeURIComponent('1089259043786326067');
 const RESPONSETYPE = encodeURIComponent('token');
-const REDIRECTURI = encodeURIComponent('https://knnnlogbccldjjlgjfhehgofmglfogho.chromiumapp.org/');
+const REDIRECTURI = browser.identity.getRedirectURL();
+//const REDIRECTURI = encodeURIComponent('https://knnnlogbccldjjlgjfhehgofmglfogho.chromiumapp.org/');
 const STATE = encodeURIComponent('waterff99');
 const SCOPE = encodeURIComponent('identify email guilds');
 
@@ -15,22 +16,29 @@ function getDiscordUri(){
 	return url;
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+	console.log("hello");
 	const key = 'logIn';
+	console.log(browser.identity.getRedirectURL());
 	if (request.message === "login"){
-		console.log(localStorage.getItem('logIn').value);
+		console.log(localStorage);
+		localStorage.setItem("hi", "there");
+		console.log(localStorage.getItem("hi"));
+		console.log(localStorage);
+		console.log(localStorage.getItem('logIn'));
 		if (localStorage.getItem('logIn')=== 'trued'){
 			console.log("hi");
 			sendResponse("success");
 			return true;
 		}
-		chrome.identity.launchWebAuthFlow({
+		console.log("false");
+		browser.identity.launchWebAuthFlow({
 			url: getDiscordUri(),
 			interactive: true,
 		}, function(redirect_uri){
-			if (chrome.runtime.lastError){
+			if (browser.runtime.lastError){
 				sendResponse('fail');
-				console.log(chrome.runtime.lastError);
+				console.log(browser.runtime.lastError);
 			}
 			sendResponse('success');
 			localStorage.setItem('logIn', 'trued');
