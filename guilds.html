@@ -3,6 +3,7 @@
 	<meta charset = "UTF-8">
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<title>Guilds</title>
+	<link rel="stylesheet" href="/styles/chooseServer.css">
     <style>
         body {
             width: 300px;
@@ -15,6 +16,10 @@
 </head>
 
 <body>
+	<div id = "buttons">
+		<div id = "heading"> Choose a server! </div>
+	</div>
+	<div id = "heading">Or, add a new server</div>
 	<select id = "selectServer">
 		<option> Choose a Server </option>
 	</select>
@@ -22,7 +27,7 @@
 		<label for="fname">Webhook:</label><br>
 		<input type="text" id="fname" name="fname"><br>
 	</form>
-	<button type = "submit"id = "button"> Submit </button>
+	<button id = "button"> Submit </button>
 	<button id = "logout">Sign out</button>
 	<script src = "./guilds.js"></script>
 	<script src = "./popup-sign-out-script.js"></script>

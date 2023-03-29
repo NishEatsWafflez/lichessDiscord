@@ -17,6 +17,7 @@ function guildify(){
 			select.appendChild(ele);
 			if(localStorage.getItem(data[i].id)){
 				var btn = document.createElement("button");
+				btn.className = "serverBtn";
 				btn.textContent = data[i].name;
 				btn.value = data[i].id;
 				btn.onclick = function(){
@@ -24,7 +25,7 @@ function guildify(){
 					localStorage.setItem('serverID', this.value);
 					window.location.replace('./sendLink.html');
 				}
-				document.body.appendChild(btn);
+				document.getElementById("buttons").appendChild(btn);
 			}
 		}
 	});
