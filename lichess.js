@@ -2,7 +2,7 @@ function getLink(){
 }
 
 const discordSend = document.getElementById('discordBtn');
-discordSend.addEventListener('click', ()=>{
+function sendLink(){
 	var details = {
     'variant': 'standard',
     'days': '1',
@@ -37,10 +37,16 @@ discordSend.addEventListener('click', ()=>{
 			alert(error);
 			localStorage.removeItem(localStorage.getItem('serverID'));
 		});
+		let creating = browser.tabs.create({
+			url:data.challenge.url
+		});
+
+		creating.then(onCreated, onError);
+		close();
 		//alert(data.challenge.url);
 		//window.location.replace('./popup-sign-out.html');
         // check the response object for result
         // ...
 		//window.location.replace('./popup-sign-out.html');
     });
-});
+}

@@ -23,7 +23,8 @@ function guildify(){
 				btn.onclick = function(){
 					localStorage.setItem('serverName', this.textContent);
 					localStorage.setItem('serverID', this.value);
-					window.location.replace('./sendLink.html');
+					sendLink();
+					btn.disabled=true;
 				}
 				document.getElementById("buttons").appendChild(btn);
 			}
