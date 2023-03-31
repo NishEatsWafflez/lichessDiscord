@@ -16,7 +16,15 @@ function guildify(){
 			ele.value = data[i].id;
 			select.appendChild(ele);
 			if(localStorage.getItem(data[i].id)){
+				var box = document.createElement("div");
 				var btn = document.createElement("button");
+				var logo = document.createElement("img")
+				if (data[i].icon != null){
+					logo.setAttribute("src",`https://cdn.discordapp.com/icons/${data[i].id}/${data[i].icon}.png`);
+				}else{
+					logo.setAttribute("src", "images/logo.png");
+				}
+				logo.setAttribute("width", "30px");
 				btn.className = "serverBtn";
 				btn.textContent = data[i].name;
 				btn.value = data[i].id;
@@ -26,7 +34,9 @@ function guildify(){
 					sendLink();
 					btn.disabled=true;
 				}
-				document.getElementById("buttons").appendChild(btn);
+				box.appendChild(logo);
+				box.appendChild(btn);
+				document.getElementById("buttons").appendChild(box);
 			}
 		}
 	});

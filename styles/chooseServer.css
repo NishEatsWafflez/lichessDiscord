@@ -1,5 +1,5 @@
 body{
-	background-image: url("background.png");
+	background-image: url("../images/background.png");
 }
 button{
 
@@ -31,7 +31,7 @@ button:hover{
 	margin-bottom: 50px;
 }
 .serverBtn{
-	width: 275px;
+	width: 225px;
 	margin: auto;
 	margin-bottom: 10px;
 }
